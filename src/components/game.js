@@ -38,12 +38,17 @@ export default class Game extends React.Component {
   render() {    
     const history = this.state.history
     const current = history[this.state.stepNumber]
+    const step = this.state.stepNumber
     let status
     const winner = calculateWinner(current.squares)
 
     if(winner) {
       status = 'Winner is' + winner
-    } else {
+        window.location.reload();
+    } 
+    else if(step == 9)
+    window.location.reload();
+    else {
       status = 'Next Player is ' + (this.state.xIsNext ? 'X' : 'O')
     }
     return(
